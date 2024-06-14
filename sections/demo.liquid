@@ -1,0 +1,14 @@
+{%- assign product_titles = collection.products | map: 'title' -%}
+{{ product_titles | join: ', ' }}
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [],
+    "presets": [
+      {
+        "name": "testing"
+      }
+    ]
+  }
+{% endschema %}

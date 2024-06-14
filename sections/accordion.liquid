@@ -1,0 +1,101 @@
+<style>
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+  .active,
+  .accordion:hover {
+    background-color: #ccc;
+  }
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+  }
+  h2 {
+    text-align: {{section.settings.alignment}};
+    text-decoration: underline;
+    text-transform: capitalize;
+  }
+  #box {
+    width: 60%;
+    margin: 0 auto;
+  }
+</style>
+
+{% javascript %}
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+{% endjavascript %}
+
+<h2>{{ section.settings.headline }}</h2>
+
+{% for block in section.blocks %}
+  <div id="box">
+    <button class="accordion">{{ block.settings.question }}</button>
+    <div class="panel">
+      <p>{{ block.settings.answer }}</p>
+    </div>
+  </div>
+{% endfor %}
+
+{% schema %}
+{
+  "name": "Accordians",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Heading For Accordions"
+    },
+   {
+   "type": "text_alignment",
+   "id": "alignment",
+   "label": "Heading AlignMent",
+   "default": "center"
+}
+
+  ],
+  "blocks": [
+    {
+      "name": "questions",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        }, {
+          "type": "text",
+          "id": "answer",
+          "label": "answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ACCORDIANS"
+    }
+  ]
+}
+{% endschema %}

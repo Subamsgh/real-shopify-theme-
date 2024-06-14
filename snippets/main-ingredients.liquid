@@ -1,0 +1,67 @@
+{%  assign scientific = product.metafields.custom.scientific_substance.value %}
+{% if  scientific.heading_1  != blank %}
+<div class="main_ingredients">
+  <div class="main_ingredients_c">
+    <h2 class="main_ingredients_heading">{{ scientific.heading_1 }}</h2>
+    <div class="ingredients_section">
+      <h2 class="main_ingredients_sub_heading">{{ scientific.heading_2 }}</h2>
+      <h2 class="main_ingredients_description">{{ scientific.heading_3 }}</h2>
+      <div>
+        <p class="ingredients_color">{{ scientific.heading_4 }}</p>
+        <p class="ingredients_color">{{ scientific.heading_5}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="main_ingredients_c main_ing_sec" style="background-image: url({{ scientific.image | img_url:"" }});"></div>
+</div>
+{% endif %}
+<style>
+.main_ingredients_c.main_ing_sec {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 3;
+    width: 600px;
+} 
+.main_ingredients {
+    display: flex;
+    background: #ffeee6;
+    column-gap: 40px;
+}
+  .main_ingredients_c{
+    width:50%;
+  }
+  .ingredients_section {
+    background: #ffeee6;
+    padding: 1% 0 1% 20%;
+    margin-top: 0;
+    position: relative;
+    top: -50px;
+}
+h2.main_ingredients_heading {
+    padding-left: 20%;
+    font-weight: 900;
+    width: 200%;
+    background: #fff;
+    padding-top: 105px;
+    position: relative;
+    top: -25px;
+    z-index: 2;
+  line-height: 65px;
+}
+h2.main_ingredients_sub_heading {
+    color: #e9a063;
+    font-weight: 700;
+    text-transform: uppercase;
+}  
+h2.main_ingredients_description {
+    color: #000;
+    font-weight: 600;
+    font-size: 25px;
+    letter-spacing: 0.1px;
+    text-wrap: wrap;
+}  
+.ingredients_color{
+ color:#000; 
+}  
+</style>

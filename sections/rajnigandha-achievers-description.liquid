@@ -1,0 +1,37 @@
+<div class="container">
+  <p class="achievers-description">
+    {{ section.settings.ri_001 }}
+  </p>
+</div>
+
+<style>
+    main#MainContent {
+      background: black;
+  }
+    .achievers-description{
+      width: 75%;
+      margin: auto;
+      text-align: center;
+      color: white;
+      font-size: 16px;
+      line-height: 24px;
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Description",
+  "settings": [
+    {
+      "type":"html",
+      "id": "ri_001",
+      "label": "Add Description"
+    }
+  ],
+  "presets": [
+    {
+      "name":"Add Description"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,110 @@
+<!-- Buy Tab Bar -->
+<div class="page-width">
+  <div class="buy-product">
+    {% for block in section.blocks %}
+      <div class="buy-prodcut-item">
+        <div data_attr="{{ block.settings.title | handleize }}" class="buy-product-haldle">
+          {{ block.settings.title }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    $('.buy-prodcut-item:first-child').addClass('buy-prodcut-item-hover');
+    $('.buy-prodcut-item').click(function(){
+    $(this).addClass('buy-prodcut-item-hover');
+    $('.buy-prodcut-item').not(this).removeClass('buy-prodcut-item-hover');
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+  $('.cstm_pan-masala,.cstm_confectionary,.cstm_food,.cstm_subscription').css('display','none');
+  $('.buy-product-haldle').click(function(){
+  var attr = $(this).attr('data_attr');
+  $(this).parents('.purchase-list-nav').siblings().find('.cstm_'+attr).css('display','block');
+  $('.cstm_all-products,.cstm_pan-masala,.cstm_confectionary,.cstm_food,.cstm_subscription').not('.cstm_'+attr).css('display','none');
+  });
+  });
+</script>
+<style>
+  .buy-prodcut-item:last-child.buy-prodcut-item-hover {
+  background: black;
+  border-radius: 45px 0 0 0;
+  }
+  .buy-prodcut-item:first-child.buy-prodcut-item-hover {
+  border-radius: 8px 45px 0px 8px;
+  }
+  .buy-prodcut-item {
+  width: 20%;
+  text-align: center;
+  }
+  .buy-prodcut-item-hover {
+  background: black;
+  border-radius: 45px 45px 0 0;
+  }
+  .buy-prodcut-item > div {
+  text-decoration:none;
+  text-transform:uppercase;
+  color:white;
+  cursor:pointer;
+  overflow-wrap:break-word;
+  }
+  .buy-product {
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #808080;
+  height: 45px;
+  border: 2px solid #c8a357;
+  width: 90%;
+  margin: auto;
+  }
+  main#MainContent {
+  color: white;
+  background: black;
+  }
+  @media only screen and (max-width: 600px){
+  .buy-prodcut-item > div {
+  font-size:9px;
+  overflow-wrap:break-word;
+  }
+  .buy-product {
+  width:100%;
+  }
+  .buy-product-haldle {
+  position: relative;
+  top: 50%;
+  translate: 0% -54%;
+  }
+  }
+</style>
+{% schema %}
+{
+  "name": "Add Purchase List",
+  "tag": "section",
+  "class": "purchase-list-nav",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "text",
+      "name":"text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Add Purchase List"
+    }
+  ]
+}
+{% endschema %}

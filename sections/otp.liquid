@@ -1,0 +1,299 @@
+<div class="contai">
+  <div class="otp-heder">
+    <h3>Login with OTP</h3>
+    <p class="login-description">Enter your log in details</p>
+  </div>
+  <div>
+    <input
+      class="olInput user-name-input"
+      placeholder="Phone Number"
+      maxlength="10"
+      name="phone"
+      inputmode="decimal"
+      type="number"
+      id="phoneNumberInput"
+      size="10"
+      pattern="^[7-9][0-9]{8}$"
+      required
+    >
+  </div>
+  <div id="otop"><button class="otp-button otp-buttoned">Request OTP</button></div>
+</div>
+<script>
+  //   $(document).ready(function(){
+  //    $('.otp-button').hover(function(){
+
+  //     var zse = $('#phoneNumberInput').val();
+  // console.log(zse)
+  //      if( zse != ''){
+
+  //      $('.otp-button').attr("disabled",false);
+  //    }
+  //      });
+  //   });
+</script>
+<div class="contai contai2">
+  <div class="otp-heder">
+    <h3>Login with OTP</h3>
+    <p class="login-description">The OTP is sent on Mobile number</p>
+    <div class="verify-box-detail">
+      <span class="user-detail"></span>
+      <svg
+        class="edit-phone bi bi-pencil-fill"
+        fill="currentColor"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"></path>
+      </svg>
+    </div>
+    <div>
+      <!--
+        <input type="tel" autocomplete="one-time-code" class="otp-input-main otp-input otp6 otp6 otp6 otp6 otp6 otp6 otp6 otp6 otp6 otp6 otp6 otp6" maxlength="6">
+      -->
+      <div id="otp-input">
+        <input type="number" step="1" min="0" max="9" autocomplete="no" pattern="\d*" class="otp6">
+        <input type="number" step="1" min="0" max="9" autocomplete="no" pattern="\d*" class="otp6">
+        <input type="number" step="1" min="0" max="9" autocomplete="no" pattern="\d*" class="otp6">
+        <input type="number" step="1" min="0" max="9" autocomplete="no" pattern="\d*" class="otp6">
+        <input type="number" step="1" min="0" max="9" autocomplete="no" pattern="\d*" class="otp6">
+        <input type="number" step="1" min="0" max="9" maxlength="1" autocomplete="no" pattern="\d*" class="otp6">
+      </div>
+      <input type="hidden" name="otp">
+    </div>
+    <div id="otop"><button class="otp-button">Verify OTP</button></div>
+    <p>Didn't Receive the OTP?</p>
+    <a class="">Resend OTP</a>
+  </div>
+</div>
+<!-- phone number validation javascript start -->
+<script>
+  (function() {
+      var input = document.getElementById('phoneNumberInput');
+      var pattern = /^[7-9][0-9]{0,9}$/;
+      var value = input.value;
+      !pattern.test(value) && (input.value = value = '');
+      input.addEventListener('input', function() {
+          var currentValue = this.value;
+          if(currentValue && !pattern.test(currentValue)) this.value = value;
+          else value = currentValue;
+      });
+  })();
+</script>
+<!-- phone number validation javascript end -->
+<script>
+    (function () {
+    const inputs = document.querySelectorAll("#otp-input input");
+
+    for (let i = 0; i < inputs.length; i++) {
+      const input = inputs[i];
+
+      input.addEventListener("input", function () {
+        // handling normal input
+        if (input.value.length == 1 && i+1 < inputs.length) {
+          inputs[i+1].focus();
+        }
+
+        // if a value is pasted, put each character to each of the next input
+        if (input.value.length > 1) {
+          // sanitise input
+          if (isNaN(input.value)) {
+            input.value = "";
+            updateInput();
+            return;
+          }
+
+          // split characters to array
+          const chars = input.value.split('');
+
+          for (let pos = 0; pos < chars.length; pos++) {
+            // if length exceeded the number of inputs, stop
+            if (pos + i >= inputs.length) break;
+
+            // paste value
+            let targetInput = inputs[pos + i];
+            targetInput.value = chars[pos];
+          }
+
+          // focus the input next to the last pasted character
+          let focus_index = Math.min(inputs.length - 1, i + chars.length);
+          inputs[focus_index].focus();
+        }
+        updateInput();
+      });
+
+      input.addEventListener("keydown", function (e) {
+        // backspace button
+        if (e.keyCode == 8 && input.value == '' && i != 0) {
+          // shift next values towards the left
+          for (let pos = i; pos < inputs.length - 1; pos++) {
+            inputs[pos].value = inputs[pos + 1].value;
+          }
+
+          // clear previous box and focus on it
+          inputs[i-1].value = '';
+          inputs[i-1].focus();
+          updateInput();
+          return;
+        }
+
+        // delete button
+        if (e.keyCode == 46 && i != inputs.length - 1) {
+          // shift next values towards the left
+          for (let pos = i; pos < inputs.length - 1; pos++) {
+            inputs[pos].value = inputs[pos + 1].value;
+          }
+
+          // clear the last box
+          inputs[inputs.length - 1].value = '';
+          input.select();
+          e.preventDefault();
+          updateInput();
+          return;
+        }
+
+        // left button
+        if (e.keyCode == 37) {
+          if (i > 0) {
+            e.preventDefault();
+            inputs[i-1].focus();
+            inputs[i-1].select();
+          }
+          return;
+        }
+
+        // right button
+        if (e.keyCode == 39) {
+          if (i+1 < inputs.length) {
+            e.preventDefault();
+            inputs[i+1].focus();
+            inputs[i+1].select();
+          }
+          return;
+        }
+      });
+    }
+
+    function updateInput() {
+      let inputValue = Array.from(inputs).reduce(function (otp, input) {
+        otp += (input.value.length) ? input.value : ' ';
+        return otp;
+      }, "");
+      document.querySelector("input[name=otp]").value = inputValue;
+    }
+  })();
+</script>
+<script>
+  $(document).ready(function(){
+  $('.otp-buttoned').click(function(){
+  $('.contai').css('display','none');
+  $('.contai2').css('display','block');
+  var qwa = $('#phoneNumberInput').val();
+     $('.user-detail').text(qwa);
+  });
+  $('.verify-box-detail').click(function(){
+  $('.contai').css('display','block');
+  $('.contai2').css('display','none');
+  });
+  });
+</script>
+
+<style>
+  .otp6{
+      box-shadow: none;
+      outline: none;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      margin-bottom: 20px;
+      text-align: center;
+  }
+  .otp6:focus {
+      box-shadow: none;
+      outline: none;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+  }
+    span.user-detail {
+      margin-right: 15px;
+  }
+    div#otop + p {
+      margin-top: 15px;
+  }
+    .verify-box-detail {
+      margin-bottom: 15px;
+  }
+    .edit-phone.bi{
+      cursor:pointer;
+    }
+    .contai2{
+      display:none;
+    }
+    .otp-heder + div {
+        margin-bottom: 20px;
+    }
+        .otp-heder > p {
+          margin-top: 0;
+          font-size: 15px;
+      }
+          .otp-heder > h3 {
+            font-weight: 600;
+            font-size: 18px;margin-bottom: 4px;
+        }
+            input.olInput.user-name-input {
+              padding: 18px 5px;
+              width: 100%;
+              /* border-top-right-radius: 10px;
+              border-bottom-right-radius: 10px; */
+                  border-radius: 10px;
+          }
+              .otp-button{
+            font-size: 15px;
+                padding: 20px 20px;
+                width: 100%;
+                border-radius: 13px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                text-align: center;
+                background: rgb(0 0 0);
+                color: #fff;
+              }
+                      .contai {
+                        text-align: center;
+                        max-width: 500px;
+                        width: 100%;
+                        padding: 30px 50px;
+                        border-radius: 24px;
+                        margin: 20px auto;
+                        color: black;
+                    }
+                 /* Hide Arrows From Input Number Code Start   */
+                input::-webkit-outer-spin-button,
+                    input::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                    }
+                  input[type=number] {
+                  -moz-appearance: textfield;
+                }
+              /* Hide Arrows From Input Number Code End   */
+                input.olInput.user-name-input:focus {
+                  outline: none;
+                  box-shadow: none;
+              }
+</style>
+{% schema %}
+{
+  "name": "otp login",
+  "settings": [],
+  "presets": [
+    {
+      "name": "otp login"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,240 @@
+<script>
+   $(document).ready(function(){
+     $('.accord-head').click(function(){
+       $(this).parent().find('.accord-body').toggleClass('showReport');
+       $('.accord-head').not(this).parent().find('.accord-body').removeClass('showReport');
+       $(this).toggleClass('clicked');
+       $('.accord-head').not(this).removeClass('clicked');
+     });
+
+  // open a specific page when clicking on a navigation menu item
+     $('.accord-head.first').click(function(event){
+         // Prevent the default behavior of the link
+         event.preventDefault();
+         // Navigate to the desired page
+         window.location.href = '/pages/report-overview';
+     });
+
+   });
+</script>
+<div class="accordion-prtn">
+  {% assign linklist_handles = 'overview,quarterly-result-disclosures,quarterly-compliance-disclosures,quarterly-compliance-disclosures-1,investor-presentation,conference-call-transcripts,general-meeting-disclosure,corporate-governance,shareholder-information,press-release-publication'
+    | split: ','
+  %}
+  {% for handle in linklist_handles %}
+    <div class="accord-wrapper">
+      <div class="accord-head">{{ linklists[handle].title }}</div>
+      {% for link in linklists[handle].links %}
+        <div class="accord-body">
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </div>
+        {% if link.links.size > 0 %}
+          <div class="child-links">
+            {% for child_link in link.links %}
+              <div class="accord-body child-link">
+                <a href="{{ child_link.url }}">{{ child_link.title }}</a>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+
+  {% comment %}
+    <div class="accord-wrapper">
+     <div class="accord-head first">{{  linklists['overview'].title }}</div>
+      {% for link in linklists.overview.links %}
+        <div class="accord-body"><a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['quarterly-result-disclosures'].title }}</div>
+      {% for link in linklists.quarterly-result-disclosures.links %}
+        <div class="accord-body"><a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['quarterly-compliance-disclosures'].title }}</div>
+      {% for link in linklists.quarterly-compliance-disclosures.links %}
+        <div class="accord-body"> <a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['quarterly-compliance-disclosures-1'].title }}</div>
+      {% for link in linklists.quarterly-compliance-disclosures-1.links %}
+        <div class="accord-body"> <a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['investor-presentation'].title }}</div>
+      {% for link in linklists.investor-presentation.links %}
+        <div class="accord-body"> <a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['conference-call-transcripts'].title }}</div>
+      {% for link in linklists.conference-call-transcripts.links %}
+        <div class="accord-body"> <a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['general-meeting-disclosure'].title }}</div>
+      {% for link in linklists.general-meeting-disclosure.links %}
+        <div class="accord-body"> <a href="{{ link.url }}">{{ link.title }}</a>{% if link.links.size > 0 %}
+              <ul>
+                {% for child_link in link.links %}
+                  <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['conference-call-transcripts'].title }}</div>
+      {% for link in linklists.conference-call-transcripts.links %}
+        <div class="accord-body"><a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['corporate-governance'].title }}</div>
+      {% for link in linklists.corporate-governance.links %}
+        <div class="accord-body"> <a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['shareholder-information'].title }}</div>
+      {% for link in linklists.shareholder-information.links %}
+        <div class="accord-body"> <a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['press-release-publication'].title }}</div>
+      {% for link in linklists.press-release-publication.links %}
+        <div class="accord-body"><a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['corporate-social-responsibility'].title }}</div>
+      {% for link in linklists.corporate-social-responsibility.links %}
+        <div class="accord-body"> <a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['investor-support'].title }}</div>
+      {% for link in linklists.investor-support.links %}
+        <div class="accord-body"> <a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['prospectus'].title }}</div>
+      {% for link in linklists.prospectus.links %}
+        <div class="accord-body"> <a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['dissemination-of-information-as-per-regulation-462-of-sebi-lodr-regulations'].title }}</div>
+      {% for link in linklists.dissemination-of-information-as-per-regulation-462-of-sebi-lodr-regulations.links %}
+        <div class="accord-body"> <a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['sustainability'].title }}</div>
+      {% for link in linklists.sustainability.links %}
+        <div class="accord-body"><a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+
+    <div class="accord-wrapper">
+     <div class="accord-head">{{  linklists['scheme-of-arrangement'].title }}</div>
+      {% for link in linklists.scheme-of-arrangement.links %}
+        <div class="accord-body"><a href="{{ link.url }}">{{ link.title }}</a></div>
+      {% endfor %}
+    </div>
+  {% endcomment %}
+</div>
+<style>
+    .accord-head::after {
+      content: '\002B';
+      color: #777;
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
+  }
+    .accord-body{
+      display:none;
+      color:#000;
+      margin-bottom: 5px;
+      color: #999;
+      cursor:pointer;
+      margin-top: 18px;
+    }
+    .accord-head {
+      border-bottom: 1px solid #b2b2b2;
+      padding: 18px 0 5px;
+      color:#000;
+      cursor:pointer;
+    }
+  .accordion-prtn {
+      width:100%;
+      /* border: 1px solid; */
+      margin-top: 2%;
+      /* margin-left: 8%; */
+  }
+    .accord-wrapper {
+      width: 100%;
+  }
+  .accord-head.first {
+      color: #c36;
+  }
+  .showReport{
+    display:block;
+  }
+  .accord-head.clicked:after{
+    content: "\2212";
+  }
+  .accord-head:hover {
+      color: #bf1616;
+      opacity: 0.8;
+  }
+  .accord-body.showReport>a {
+      text-decoration: none;
+      color: #999;
+  }
+  .accord-body.showReport>a:hover{
+    color: #bf1616;
+      opacity: 0.8;
+  }
+  .accord-body.showReport>ul, li {
+      list-style-type: none;
+      text-decoration: none;
+      color: #999999;
+  }
+    .accord-body.showReport>ul>li>a {
+      text-decoration: none;
+      color: #999999;
+  }
+  .accord-body.showReport>ul>li>a:hover{
+      color: #bf1616;
+      opacity: 0.8;
+     }
+  .accord-head:hover::after {
+      color: #c36;
+  }
+</style>

@@ -1,0 +1,84 @@
+<!--how-to-use/section-->
+{% assign metaobjects = product.metafields.custom.how_to_use.value %}
+{% if metaobjects.heading != blank  %}
+<div class="how_to_used">
+  <h2>{{ metaobjects.heading }}</h2>
+  <div class="how_to_use_icon">
+    {% assign images = metaobjects.image.value %}
+    {% for image in images %}
+      <div class="list_of_use_p">
+        <div class="list_of_use">
+          <div class="list_of_use_i">
+            <div class="list_of_use_img">
+              <img src="{{ image | img_url: '' }}" width="50" height="50">
+            </div>
+            <div class="list_of_use_txt">
+              <p class="list_of_use_title">{{ metaobjects.title.value[forloop.index0] }}</p>
+              <p class="list_of_use_des">{{ metaobjects.description.value[forloop.index0] }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+<style>
+  .list_of_use_p {
+      width: 50%;
+  }
+  .how_to_use_icon {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 3% 2%;
+    row-gap: 30px;
+  }
+  .how_to_used {
+    width: 70%;
+    margin:60px auto;
+    border: 1px solid #e0e0e0;
+    border-radius:4px;
+}
+  .list_of_use_i {
+    display: flex;
+  }
+  .how_to_used>h2 {
+    color: #000;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.016rem;
+    margin:3%;
+}
+ p.list_of_use_title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.009rem;
+   color:#000;
+}
+  .list_of_use_txt {
+    padding-left: 5%;
+}
+p.list_of_use_des {
+    margin: 0;
+    font-size: 16px;
+    color: #7e7e7e;
+    text-wrap: wrap;
+}  
+@media screen and (max-width:649px){
+  .how_to_use_icon{
+    flex-direction:column;
+  }
+  .list_of_use_p {
+    width: 100%;
+}
+ .how_to_used {
+        border-top: 5px solid #c8e6c8;
+        padding: 2%;
+        width: 100%;
+        border-bottom: 5px solid #c8e6c8;
+        border-left: none;
+        border-right: none;
+    }
+}  
+</style>

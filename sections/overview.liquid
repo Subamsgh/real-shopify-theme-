@@ -1,0 +1,139 @@
+<div class="repo-cstm-ptrn">
+  <div class="repo-cstm-child">{% render 'custom-menu' %}</div>
+  <div class="repo-cstm-child-1 report-overiew">
+    <div class="box-blog1-outer">
+      <h2 class="box-blog1 heading">{{ section.settings.main-heading-001 }}</h2>
+      <ul class="ordered-list-report-overiew">
+        {% for block in section.blocks %}
+          {% if block.type == "text" %}
+        <li class="list-repop-prt">
+          {{ block.settings.list-heading-09 }}
+          <div class="list-repop-link"><a href="{{ block.settings.list-view-url }}">View</a><a href="{{ block.settings.list-view-url }}">Download</a></div>
+        </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="box-blog2">
+      {% for block in section.blocks %}
+        {% if block.type == "image" %}
+        <div class="box-blog2-inner">
+          <div><img src="{{ block.settings.img_overiew_logo | image_url }}" width="51" height="53"></div>
+          <h3><a href="{{ block.settings.overiew_url_logo }}" class="box-blog-iner-anchor">{{ block.settings.overiew-txt-heading }}</a></h3>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Investor Report",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main-heading-001",
+      "label": "Enter The Heading",
+      "default":"What’s New"
+    }
+  ],
+  "blocks": [
+    {
+     "name":"text",
+     "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "list-heading-09",
+          "label": "list content"
+        },
+        {
+          "type": "url",
+          "id": "list-view-url",
+          "label": "Enter The File URl"
+        }
+      ]
+    },
+    {
+      "name":"image",
+      "type": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id":"img_overiew_logo",
+          "label":"select logo"
+        },
+        {
+          "type": "url",
+          "id": "overiew_url_logo",
+          "label": "Select URl"
+        },
+        {
+          "type": "text",
+          "id": "overiew-txt-heading",
+          "label": "Enter The Heading"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Add Inverstor Report"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+      .box-blog1-outer {
+          background: #fffacc;
+          padding: 15px 30px;
+          margin-top: -5%;
+      }
+      a.box-blog-iner-anchor {
+          text-decoration: none;
+          color: #000;
+          margin-left: 10px;
+          font-size: 18px;
+          letter-spacing: 1px;
+      }
+      .box-blog2-inner {
+          display: flex;
+          border: 1px solid #000;
+          margin: 1%;
+          padding: 30px;
+          width: 48%;
+      }
+    .box-blog2{
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 5%;
+    }
+    h2.box-blog1.heading {
+          font-size: 22px;
+          color: #bf1616;
+    }
+  .repo-cstm-child>.box-blog1{
+          color :rgb(191, 22, 22);
+  }
+        .repo-cstm-child-1.report-overiew>ul {
+              background: rgb(255, 250, 204);
+              width: 90%;
+              margin: 0 0 0 6%;
+              height: 240px;
+              overflow: auto;
+        }
+        li.list-repop-prt {
+              display: flex;
+              justify-content:space-between;
+        }
+        .list-repop-link>a {
+              text-decoration: none;
+              color: #000;
+              border: 1px solid #000;
+              padding: 7px;
+              font-size: 11px;
+              margin: 0 10px;
+        }
+</style>

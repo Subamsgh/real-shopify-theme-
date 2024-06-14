@@ -1,0 +1,110 @@
+<!-- term and condition page -->
+<div class="container-ra">
+  <p>{{ section.settings.updated_date_of_tandc }}</p>
+  {% for block in section.blocks %}
+    <div class="op_blurb">
+      {% if block.settings.heading_in_T_and_C != blank %}
+        <h3>{{ block.settings.heading_in_T_and_C }}</h3>
+      {% endif %}
+      {% if block.settings.paragraph_in_T_and_C != blank %}
+        <p>{{ block.settings.paragraph_in_T_and_C }}</p>
+      {% endif %}
+      {% if block.settings.List_content_in_T_and_C != blank %}
+        <div>{{ block.settings.List_content_in_T_and_C }}</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% schema %}
+{
+  "name": "T&C",
+  "tag": "section",
+  "class": "term-and-condition",
+  "settings": [
+    {
+      "type": "html",
+      "id": "updated_date_of_tandc",
+      "label": "Term And Condition Upadated Date"
+    }
+  ],
+  "blocks": [
+    {
+      "name":"text",
+      "type": "html",
+      "settings": [
+        {
+          "type": "html",
+          "id": "heading_in_T_and_C",
+          "label": "Enter The Heading"
+        },
+        {
+          "type": "html",
+          "id": "paragraph_in_T_and_C",
+          "label": "Enter The Paragraph"
+        },
+        {
+          "type":"richtext",
+          "id": "List_content_in_T_and_C",
+          "label": "Enter The List"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Add Term And Condition"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  section#shopify-section-template--22515905954068__rajnigandha_term_and_condition_JYP3Wy {
+    background: #010317;
+    background-image: url(https://rajnigandha.com/frontendassets/images/bg-fade.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+    font-family: "Quicksand", Arial, Helvetica, sans-serif;
+  }
+    .container-ra {
+      width: 100%;
+      max-width:1200px;
+      margin: auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .container-ra > p {
+      font-size: 16px;
+      line-height: 24px;
+      color:white;
+      letter-spacing: normal;
+    }
+    .op_blurb > p {
+      font-size: 16px;
+      line-height: 24px;
+      color:white;
+      letter-spacing: normal;
+    }
+    .op_blurb > h3 {
+      font-size: 20px;
+      color: #c8a357;
+      line-height: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+     padding: 0 0 5px 0;
+      letter-spacing: normal;
+    }
+    .op_blurb > div > ul {
+      color: white;
+      font-size: 16px;
+      letter-spacing: normal;
+      line-height: 24px;
+    }
+    .op_blurb>div>ul>li::marker {
+      font-size: 22px;
+      color: #c8a357;
+    }
+    .op_blurb {
+      padding: 12px 0;
+    }
+</style>

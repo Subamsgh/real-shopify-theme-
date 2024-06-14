@@ -1,0 +1,51 @@
+{% comment %}
+    <style>
+      .box{
+  margin-top:200px;
+  display:flex;
+  justify-content:center;
+  }
+    </style>
+{% endcomment %}
+<div class="box">
+  <img
+    src="{{ section.settings.product.featured_image | image_url }}"
+    width="{{ section.settings.image_width }}"
+    height="{{ section.settings.image_height }}"
+  >
+</div>
+{% schema %}
+{
+  "name": "Zooming Effect On Product",
+  "settings": [{
+  "type": "product",
+  "id": "product",
+  "label": "Product"
+},
+{
+  "type": "range",
+  "id": "image_width",
+  "min": 10,
+  "max": 1000,
+  "step": 10,
+  "unit": "px",
+  "label": "Imgage Width",
+  "default": 100
+},
+{
+  "type": "range",
+  "id": "image_height",
+  "min": 10,
+  "max": 1000,
+  "step": 10,
+  "unit": "px",
+  "label": "Image Height",
+  "default": 100
+}
+
+],
+  "presets":[{
+    "name":"Zooming Effect On Product Images"
+  }]
+}
+{% endschema %}

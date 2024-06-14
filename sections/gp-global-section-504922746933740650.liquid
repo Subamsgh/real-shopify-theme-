@@ -1,0 +1,738 @@
+
+  {% render 'gp-head', isThemeSection: true %}
+  
+      <style>
+        @font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwAopxRSW3w&skey=cd068b3e1b767e51&v=v14) format('woff');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=rP2tp2ywxg089UriI5-g4vlH9VoD8CmcqZG40F9JadbnoEwARZtRSW3w&skey=cd068b3e1b767e51&v=v14) format('woff');
+}
+@font-face {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=L0xjDF02iFML4hGCyOCpRdycFsGxSrqDyx4vEZms&skey=1cdbdfe57ba870bf&v=v15) format('woff');
+}
+@font-face {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=L0xjDF02iFML4hGCyOCpRdycFsGxSrqDFRkvEZms&skey=1cdbdfe57ba870bf&v=v15) format('woff');
+}
+@font-face {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=L0xjDF02iFML4hGCyOCpRdycFsGxSrqDLBkvEZms&skey=1cdbdfe57ba870bf&v=v15) format('woff');
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmsans/v14/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmsans/v14/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmsans/v14/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/dmsans/v14/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/urbanist/v15/L0x-DF02iFML4hGCyMqrbS1miXK2Z7s.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/urbanist/v15/L0x-DF02iFML4hGCyMqlbS1miXK2.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/urbanist/v15/L0x-DF02iFML4hGCyMqrbS1miXK2Z7s.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/urbanist/v15/L0x-DF02iFML4hGCyMqlbS1miXK2.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/urbanist/v15/L0x-DF02iFML4hGCyMqrbS1miXK2Z7s.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Urbanist';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/urbanist/v15/L0x-DF02iFML4hGCyMqlbS1miXK2.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+      </style>
+    
+  <style>
+    .gps-504922746933740650 .blur{--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: }.gps-504922746933740650 .g-heading-1{font-family:var(--g-h1-ff);font-size:var(--g-h1-size);font-style:var(--g-h1-fs);font-weight:var(--g-h1-weight);letter-spacing:var(--g-h1-ls);line-height:var(--g-h1-lh)}.gps-504922746933740650 .g-heading-2{font-family:var(--g-h2-ff);font-size:var(--g-h2-size);font-style:var(--g-h2-fs);font-weight:var(--g-h2-weight);letter-spacing:var(--g-h2-ls);line-height:var(--g-h2-lh)}.gps-504922746933740650 .g-paragraph-1{font-family:var(--g-p1-ff);font-size:var(--g-p1-size);font-style:var(--g-p1-fs);font-weight:var(--g-p1-weight);letter-spacing:var(--g-p1-ls);line-height:var(--g-p1-lh)}.gps-504922746933740650 .g-s-medium{padding:8px 24px}.gps-504922746933740650 .pointer-events-auto{pointer-events:auto}.gps-504922746933740650 .invisible{visibility:hidden}.gps-504922746933740650 .absolute{position:absolute}.gps-504922746933740650 .relative{position:relative}.gps-504922746933740650 .inset-0{inset:0}.gps-504922746933740650 .z-1{z-index:1}.gps-504922746933740650 .mx-auto{margin-left:auto;margin-right:auto}.gps-504922746933740650 .mb-0{margin-bottom:0}.gps-504922746933740650 .\!inline{display:inline!important}.gps-504922746933740650 .flex{display:flex}.gps-504922746933740650 .inline-flex{display:inline-flex}.gps-504922746933740650 .grid{display:grid}.gps-504922746933740650 .h-5{height:20px}.gps-504922746933740650 .h-full{height:100%}.gps-504922746933740650 .w-5{width:20px}.gps-504922746933740650 .w-full{width:100%}.gps-504922746933740650 .w-max{width:-moz-max-content;width:max-content}.gps-504922746933740650 .min-w-max{min-width:-moz-max-content;min-width:max-content}.gps-504922746933740650 .\!max-w-max{max-width:-moz-max-content!important;max-width:max-content!important}.gps-504922746933740650 .max-w-full{max-width:100%}.gps-504922746933740650 .flex-1{flex:1 1 0%}@keyframes spin{to{transform:rotate(1turn)}}.gps-504922746933740650 .animate-spin{animation:spin 1s linear infinite}.gps-504922746933740650 .flex-col{flex-direction:column}.gps-504922746933740650 .flex-wrap{flex-wrap:wrap}.gps-504922746933740650 .items-center{align-items:center}.gps-504922746933740650 .justify-center{justify-content:center}.gps-504922746933740650 .gap-y-0{row-gap:0}.gps-504922746933740650 .overflow-hidden{overflow:hidden}.gps-504922746933740650 .break-words{overflow-wrap:break-word}.gps-504922746933740650 .rounded{border-radius:4px}.gps-504922746933740650 .rounded-none{border-radius:0}.gps-504922746933740650 .border{border-width:1px}.gps-504922746933740650 .bg-g-bg-2{background-color:var(--g-c-bg-2)}.gps-504922746933740650 .text-center{text-align:center}.gps-504922746933740650 .text-g-bg-3{color:var(--g-c-bg-3)}.gps-504922746933740650 .no-underline{text-decoration-line:none}.gps-504922746933740650 .opacity-25{opacity:.25}.gps-504922746933740650 .opacity-75{opacity:.75}.gps-504922746933740650 .blur{--tw-blur:blur(8px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.gps-504922746933740650 .transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-504922746933740650 .duration-200{transition-duration:.2s}.gps-504922746933740650 .duration-300{transition-duration:.3s}.gps-504922746933740650 .ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-504922746933740650 .ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}.gps-504922746933740650 .disabled\:btn-disabled:disabled{cursor:default}@media (hover:hover) and (pointer:fine){.gps-504922746933740650 .hover\:text-g-bg-3:hover{color:var(--g-c-bg-3)}}.gps-504922746933740650 .disabled\:pointer-events-none:disabled{pointer-events:none}.gps-504922746933740650 .disabled\:opacity-30:disabled{opacity:.3}.gps-504922746933740650 .group[data-state=loading] .group-data-\[state\=loading\]\:visible{visibility:visible}.gps-504922746933740650 .group[data-state=loading] .group-data-\[state\=loading\]\:invisible{visibility:hidden}.gps-504922746933740650 .\[\&_\*\]\:max-w-full *{max-width:100%}.gps-504922746933740650 .\[\&_p\]\:inline p{display:inline}.gps-504922746933740650 .\[\&_p\]\:whitespace-pre-line p{white-space:pre-line}.gps-504922746933740650 .\[\&_p\]\:after\:whitespace-pre-wrap p:after{content:var(--tw-content);white-space:pre-wrap}.gps-504922746933740650 .\[\&_p\]\:after\:content-\[\'\\A\'\] p:after{--tw-content:"\A";content:var(--tw-content)}
+  </style>
+  
+      
+      
+            <section
+              class="mx-auto max-w-full"
+              style="--w:100%;--w-tablet:100%;--w-mobile:100%;--pl:0px;--pl-tablet:0px;--pl-mobile:0px;--pr:0px;--pr-tablet:0px;--pr-mobile:0px"
+            >
+              
+    <div
+      pageContext id="gg2L4J2_PB"
+        style="--pt:var(--g-s-2xl);--pb:var(--g-s-2xl);--d:grid;--d-tablet:grid;--d-mobile:grid;--b:solid;--bc:#121212;--bw:0px;--radius:var(--g-radius-none);--shadow:none;--op:100%;--cg:32px;--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gg2L4J2_PB mx-auto mb-0 grid max-w-full gap-y-0 transition-colors duration-200 ease-in-out [&_*]:max-w-full"
+    >
+    <div
+      pageContext tag="Col" label="Block" type="component"
+      style="--jc:start"
+      class="gSh9RyIL_7 relative flex flex-col"
+    >
+      
+    <div
+      pageContext parentTag="Col"
+        class="gNBWzVVflw "
+        style="--ta:left;--mb:var(--g-s-l);--d:block;--d-tablet:block;--d-mobile:block;--b:solid;--bc:#121212;--bw:0px;--radius:var(--g-radius-none);--shadow:none;--op:100%;--animation:[object Object]"
+      >
+      <div class="flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] g-heading-1 gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--c:var(--g-c-text-2, text-2);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >
+        <p>Your heading text goes here #gempages&nbsp;</p>
+        </h2>
+      </div>
+    </div><div style="--mt:var(--g-s-2xl);--mb:var(--g-s-l);--d:block;--d-tablet:block;--d-mobile:block;--b:solid;--bc:#121212;--bw:0px;--bblr:999999px;--bbrr:999999px;--btlr:999999px;--btrr:999999px;--shadow:none;--op:100%;--animation:[object Object]" class="gIZXXnX5JO ">
+      
+    <gp-countdown-timer
+     class="flex "
+     gp-data='{"behaviour":"standard","dateStandard":1711087282048,"timeZone":"UTC+7","timerDaily":{"hours":10,"mins":30,"format":"am"},"timerEverygreen":{"days":0,"hours":3,"mins":0,"endTime":1710493282048,"startTime":1710482482048},"enableDay":true,"dayLabel":"Days","enableHour":true,"hourLabel":"Hours","enableMinute":true,"minuteLabel":"Minutes","enableSecond":true,"secondLabel":"Seconds","enableWeek":false,"weekLabel":"Weeks","redirectUrl":{"link":"#","target":"_self"},"autoHideWhenTimeout":true,"uid":"gIZXXnX5JO","builderData":{"uid":"gIZXXnX5JO","tag":"Countdown","label":"Countdown Timer","settings":{"behaviour":"standard","dateStandard":1711087282048,"timeZone":"UTC+7","timerDaily":{"hours":10,"mins":30,"format":"am"},"timerEverygreen":{"days":0,"hours":3,"mins":0,"endTime":1710493282048,"startTime":1710482482048},"enableDay":true,"dayLabel":"Days","enableHour":true,"hourLabel":"Hours","enableMinute":true,"minuteLabel":"Minutes","enableSecond":true,"secondLabel":"Seconds","enableWeek":false,"weekLabel":"Weeks","redirectUrl":{"link":"#","target":"_self"},"autoHideWhenTimeout":true},"styles":{"numTypo":{"type":"heading-2","attrs":{"color":"text-2"}},"colorNumber":"text-2","labelTypo":{"type":"paragraph-1","attrs":{"color":"text-1"}},"colorLabel":"text-1","textAlign":{"desktop":"center"},"backgroundItemColor":"bg-2","verticalGap":"0px","horizontalGap":"8px","itemPadding":{"type":"medium"},"borderState":{"normal":{"borderType":"none","border":"none","borderWidth":"1px","width":"1px 1px 1px 1px","isCustom":false}},"roundedState":{"normal":{"radiusType":"none"}}},"advanced":{"spacing-setting":{"desktop":{"margin":{"bottom":"var(--g-s-l)","top":"var(--g-s-2xl)"},"link":false}},"d":{"desktop":true,"tablet":true,"mobile":true},"border":{"borderType":"none","border":"solid","borderWidth":"1px","width":"0px","color":"#121212","isCustom":true,"position":"all"},"rounded":{"btrr":"999999px","bblr":"999999px","bbrr":"999999px","btlr":"999999px","radiusType":"custom"},"hasBoxShadow":false,"boxShadow":{"type":"shadow-1","distance":"4px","blur":"12px","spread":"0px","color":"rgba(0, 0, 0, 0.20)","angle":90},"op":{"desktop":"100%"},"animation":{"desktop":{"enabled":false,"trigger":"appear","triggerConfig":{"appear":{"animation":"fade","setting":{"fade":{"delay":"0","speed":1.7,"easing":"ease-out"},"zoom":{"delay":"0","speed":1.7,"isFade":true,"easing":"ease-out","zoomDirection":"in","scale":{"in":[80,100],"out":[120,100]}},"slide":{"delay":"0","speed":1.7,"easing":"ease-out","direction":"left","isCustomDistance":false},"shake":{"delay":"0","speed":0.7,"loop":false,"intensity":11,"easing":"linear"}}},"hover":{"animation":"none","setting":{"fade":{"delay":"0","speed":1.7,"easing":"ease-out"},"zoom":{"delay":"0","speed":1.7,"isFade":false,"easing":"ease-out","zoomDirection":"in","scale":{"in":[100,120],"out":[100,80]}},"slide":{"delay":"0","speed":1.7,"easing":"ease-out","direction":"left","isCustomDistance":false},"shake":{"delay":"0","speed":0.7,"loop":false,"intensity":11,"easing":"linear"}}}}}}},"childrens":[],"type":"component"}}'
+     style="--jc:center"
+     >
+      <div id="section-countdown" class="flex flex-wrap w-max relative" style="gap:8px;--jc:center">
+        <a
+            href="#"
+            target="_self"
+            aria-label="Countdown link"
+            class="absolute inset-0 z-1"
+          > </a>
+          
+          
+    <div
+        style="--bs:none;--bw:1px 1px 1px 1px;--bg:var(--g-c-bg-2, bg-2)"
+    class="bg-g-bg-2 flex-1 text-center min-w-max !max-w-max g-s-medium">
+    
+    <div
+      id="day"
+        class=" "
+        style="--mb:0px;--c:var(--g-c-text-2, text-2)"
+      >
+      <div class="" style="">
+        <div
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] gp-countdown-number g-heading-2"
+          style="--w:100%;--c:var(--g-c-text-2, text-2);word-break:break-word;overflow:hidden"
+        >
+        00
+        </div>
+      </div>
+    </div>
+    
+    <div
+      
+        class=" "
+        style="--c:var(--g-c-text-1, text-1)"
+      >
+      <div class="" style="">
+        <div
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] g-paragraph-1"
+          style="--w:100%;--c:var(--g-c-text-1, text-1);word-break:break-word;overflow:hidden"
+        >
+        Days
+        </div>
+      </div>
+    </div>
+    </div>
+    
+          
+    <div
+        style="--bs:none;--bw:1px 1px 1px 1px;--bg:var(--g-c-bg-2, bg-2)"
+    class="bg-g-bg-2 flex-1 text-center min-w-max !max-w-max g-s-medium">
+    
+    <div
+      id="hour"
+        class=" "
+        style="--mb:0px;--c:var(--g-c-text-2, text-2)"
+      >
+      <div class="" style="">
+        <div
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] gp-countdown-number g-heading-2"
+          style="--w:100%;--c:var(--g-c-text-2, text-2);word-break:break-word;overflow:hidden"
+        >
+        00
+        </div>
+      </div>
+    </div>
+    
+    <div
+      
+        class=" "
+        style="--c:var(--g-c-text-1, text-1)"
+      >
+      <div class="" style="">
+        <div
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] g-paragraph-1"
+          style="--w:100%;--c:var(--g-c-text-1, text-1);word-break:break-word;overflow:hidden"
+        >
+        Hours
+        </div>
+      </div>
+    </div>
+    </div>
+    
+          
+    <div
+        style="--bs:none;--bw:1px 1px 1px 1px;--bg:var(--g-c-bg-2, bg-2)"
+    class="bg-g-bg-2 flex-1 text-center min-w-max !max-w-max g-s-medium">
+    
+    <div
+      id="minute"
+        class=" "
+        style="--mb:0px;--c:var(--g-c-text-2, text-2)"
+      >
+      <div class="" style="">
+        <div
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] gp-countdown-number g-heading-2"
+          style="--w:100%;--c:var(--g-c-text-2, text-2);word-break:break-word;overflow:hidden"
+        >
+        00
+        </div>
+      </div>
+    </div>
+    
+    <div
+      
+        class=" "
+        style="--c:var(--g-c-text-1, text-1)"
+      >
+      <div class="" style="">
+        <div
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] g-paragraph-1"
+          style="--w:100%;--c:var(--g-c-text-1, text-1);word-break:break-word;overflow:hidden"
+        >
+        Minutes
+        </div>
+      </div>
+    </div>
+    </div>
+    
+          
+    <div
+        style="--bs:none;--bw:1px 1px 1px 1px;--bg:var(--g-c-bg-2, bg-2)"
+    class="bg-g-bg-2 flex-1 text-center min-w-max !max-w-max g-s-medium">
+    
+    <div
+      id="second"
+        class=" "
+        style="--mb:0px;--c:var(--g-c-text-2, text-2)"
+      >
+      <div class="" style="">
+        <div
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] gp-countdown-number g-heading-2"
+          style="--w:100%;--c:var(--g-c-text-2, text-2);word-break:break-word;overflow:hidden"
+        >
+        00
+        </div>
+      </div>
+    </div>
+    
+    <div
+      
+        class=" "
+        style="--c:var(--g-c-text-1, text-1)"
+      >
+      <div class="" style="">
+        <div
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] g-paragraph-1"
+          style="--w:100%;--c:var(--g-c-text-1, text-1);word-break:break-word;overflow:hidden"
+        >
+        Seconds
+        </div>
+      </div>
+    </div>
+    </div>
+    
+      </div>
+     </gp-countdown-timer>
+     <script src="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-countdown.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+      </div>
+      
+      
+    <div
+      pageContext parentTag="Col" id="g1SFQ5LXYO"
+        style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--radius:var(--g-radius-none);--cg:0px;--pc:start;--gtc:minmax(0, 6fr) minmax(0, 6fr);--gtc-mobile:minmax(0, 12fr);--w:1000px;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="g1SFQ5LXYO mx-auto mb-0 grid max-w-full gap-y-0 transition-colors duration-200 ease-in-out [&_*]:max-w-full"
+    >
+    <div
+      pageContext label="Block" tag="Col" type="component"
+      style="--jc:center;--jc-tablet:end"
+      class="gKLcR3BrtY relative flex flex-col"
+    >
+      
+      
+      
+    <div
+      pageContext parentTag="Col" id="gl7rQpREf2"
+        style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--radius:var(--g-radius-none);--mt:var(--g-s-2xl);--ml:auto;--mb:var(--g-s-2xl);--mr:auto;--pr:86px;--mt-mobile:auto;--ml-mobile:auto;--mb-mobile:49px;--mr-mobile:auto;--pr-mobile:0px;--mt-tablet:auto;--ml-tablet:auto;--mb-tablet:var(--g-s-2xl);--mr-tablet:auto;--pr-tablet:14px;--cg:32px;--pc:start;--gtc:minmax(0, 12fr);--w:556px;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gl7rQpREf2 mx-auto mb-0 grid max-w-full gap-y-0 transition-colors duration-200 ease-in-out [&_*]:max-w-full"
+    >
+    <div
+      pageContext label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="g-rR4U8dNI relative flex flex-col"
+    >
+      
+    <div
+      pageContext parentTag="Col"
+        class="gi3btkKg3B "
+        style="--ta:left;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-l)"
+      >
+      <div class="flex" style="--jc:left">
+        <h1
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--fs:normal;--ff:var(--g-font-Urbanist, 'Urbanist');--weight:400;--ls:normal;--lh:120%;--size:51px;--size-tablet:44px;--size-mobile:44px;--c:#242424;--tt:none;word-break:break-word;overflow:hidden"
+        >
+        <p>The secret of pure beauty from nature</p>
+        </h1>
+      </div>
+    </div>
+    <div
+      pageContext parentTag="Col"
+        class="g2RFnCLHot "
+        style="--ta:left;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-2xl)"
+      >
+      <div class="flex" style="--jc:left">
+        <div
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--fs:normal;--ff:var(--g-font-Urbanist, 'Urbanist');--weight:400;--ls:normal;--lh:150%;--size:16px;--size-tablet:16px;--size-mobile:16px;--c:#424242;word-break:break-word;overflow:hidden"
+        >
+        <p>All the products are organic, cruelty-free and carefully sourced. The perfect blend of natural ingredients illuminates your skin while enhancing your already beautiful complexion.</p>
+        </div>
+      </div>
+    </div>
+  <script src="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-button.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  <gp-button gp-data='{"setting":{"btnLink":{"link":"#","target":"_self"},"disabled":false,"htmlType":"button","iconAlign":"left","iconSvg":"<svg style=\"width: 100%; height: 100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" fill=\"currentColor\"> <path fill=\"currentColor\" strokeLinecap=\"round\" strokeLinejoin=\"round\" fill=\"currentColor\" d=\"M115.584 494.176c-12.352 6.336 -26.368 -4.768 -23.872 -18.944l26.56 -151.36L5.536 216.48c-10.528 -10.048 -5.056 -28.416 9.056 -30.4l156.736 -22.272L241.216 25.344c6.304 -12.48 23.36 -12.48 29.664 0l69.888 138.464 156.736 22.272c14.112 1.984 19.584 20.352 9.024 30.4l-112.704 107.392 26.56 151.36c2.496 14.176 -11.52 25.28 -23.872 18.944L256 421.984l-140.448 72.192z\" /></svg>","iconVisible":false,"label":"Shop organic products"}}' style="">
+  <div
+    
+    style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--ta:left"
+    class=""
+  >
+    <style>
+    .gXQObZaA3L.gp-button-base::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: #242424;
+  
+      
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      
+    }
+
+    .gXQObZaA3L:hover::before {
+      border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-color: #424242;
+  
+      
+    }
+  </style>
+    <a
+      href="#" target="_self" data-id="gXQObZaA3L" aria-label="Shop organic products"
+      data-state="idle"
+      class="gXQObZaA3L gp-button-base rounded-none max-w-full relative group inline-flex items-center justify-center no-underline transition-colors duration-300 disabled:btn-disabled disabled:opacity-30 disabled:pointer-events-none"
+      style="--hvr-bg:#424242;--bg:#242424;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--hvr-c:#FFFFFF;--c:#FFFFFF;--pl:48px;--pr:48px;--pt:11px;--pb:11px;--pl-tablet:48px;--pr-tablet:48px;--pt-tablet:11px;--pb-tablet:11px;--pl-mobile:10px;--pr-mobile:10px;--pt-mobile:9.5px;--pb-mobile:9.5px;--w:Auto;--w-tablet:Auto;--w-mobile:100%;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--tt:default;--fs:normal;--ff:var(--g-font-Urbanist, 'Urbanist');--weight:600;--ls:normal;--lh:150%;--size:16px;--size-tablet:16px;--size-mobile:14px"
+    >
+        <svg
+          class="invisible absolute h-5 w-5 animate-spin group-data-[state=loading]:visible"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
+        </svg>
+
+    
+      <span
+        class="break-words group-data-[state=loading]:invisible [&_p]:whitespace-pre-line z-1 h-full flex items-center overflow-hidden "
+        style="--tt:default"
+      >
+        Shop organic products
+      </span>
+    </a>
+  </div>
+  </gp-button>
+  
+    </div>
+    </div>
+  
+    
+    </div><div
+      pageContext label="Block" tag="Col" type="component"
+      style="--jc:center;--jc-tablet:end"
+      class="g3SXvfbkoB relative flex flex-col"
+    >
+      <div
+    
+    role="presentation"
+    class="group/image gzxh5aBe4y"
+    style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--ta:left"
+    >
+      <div
+        class="pointer-events-auto h-full"
+        
+        class="h-full w-full"
+        style="--shadow:none;border-radius:inherit;--ta:left"
+      >
+        <img
+    quality="70" title="Image Title"
+    draggable="false"
+    class="!inline h-full max-w-full flex gp_lazyload"
+    data-src="{{ "432750572815254551-d4ad8080-142f-4a58-a3fe-020a2b5881a6.png" | asset_url }}" data-srcset="{{ '432750572815254551-d4ad8080-142f-4a58-a3fe-020a2b5881a6.png' | asset_img_url: '768x768' }} 768w, {{ '432750572815254551-d4ad8080-142f-4a58-a3fe-020a2b5881a6.png' | asset_img_url: '1024x1024' }} 1024w, {{ '432750572815254551-d4ad8080-142f-4a58-a3fe-020a2b5881a6.png' | asset_img_url: 'master' }} 1440w" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+Pr1638ACaED3/nOThIAAAAASUVORK5CYII=" width="1061" height="916" alt="Alt Image" priority base-src
+    sizes="100vw"
+    style="--aspect:1061/916;--aspect-tablet:1061/916;--aspect-mobile:1061/916;--objf:cover;--w:707px;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto;--bs:none;--bw:0px;--bc:transparent;--radius:var(--g-radius-none);border-radius:inherit"
+  />
+      </div>
+  </div>
+    </div>
+    </div>
+  
+    
+      
+      
+    <div
+      pageContext parentTag="Col" id="gHJj-irx8u"
+        style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--radius:var(--g-radius-none);--mb:var(undefined);--cg:var(--g-s-3xl);--cg-tablet:var(--g-s-2xl);--pc:start;--gtc:minmax(0, 6fr) minmax(0, 6fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gHJj-irx8u mx-auto mb-0 grid max-w-full gap-y-0 transition-colors duration-200 ease-in-out [&_*]:max-w-full"
+    >
+    <div
+      pageContext label="Block" tag="Col" type="component"
+      style="--jc:center"
+      class="gGbqwTXute relative flex flex-col"
+    >
+      
+    <div
+      pageContext parentTag="Col"
+        class="geV2Vr6JXw "
+        style="--tt:default;--ta:left;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-l)"
+      >
+      <div class="flex" style="--jc:left">
+        <h2
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--c:#242424;--fs:normal;--ff:var(--g-font-DM-Sans, 'DM Sans');--weight:700;--ls:normal;--lh:120%;--size:51px;--size-tablet:51px;--size-mobile:44px;word-break:break-word;overflow:hidden"
+        >
+        <p>Delicious and fresh organic drinks</p>
+        </h2>
+      </div>
+    </div>
+    <div
+      pageContext parentTag="Col"
+        class="gKpKTc37sE "
+        style="--tt:default;--ta:left;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mb:56px;--mb-mobile:28px;--mb-tablet:49px"
+      >
+      <div class="flex" style="--jc:left">
+        <div
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:#424242;--fs:normal;--ff:var(--g-font-DM-Sans, 'DM Sans');--weight:400;--ls:normal;--lh:150%;--size:16px;--size-tablet:16px;--size-mobile:14px;word-break:break-word;overflow:hidden"
+        >
+        <p>The healthy choice every morning. Purify your body and get the vitamins you need to power you through the day.</p>
+        </div>
+      </div>
+    </div>
+      
+      
+    <div
+      pageContext parentTag="Col" id="gbLUgCOtpj"
+        style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--radius:var(--g-radius-none);--mb:var(--g-s-xl);--cg:var(--g-s-s);--pc:start;--gtc:minmax(0, auto) minmax(0, auto) minmax(0, auto);--gtc-mobile:minmax(0, auto) minmax(0, auto) minmax(0, auto);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gbLUgCOtpj mx-auto mb-0 grid max-w-full gap-y-0 transition-colors duration-200 ease-in-out [&_*]:max-w-full"
+    >
+    <div
+      pageContext label="Block" tag="Col" type="component"
+      style="--jc:center"
+      class="grsGofc7N0 relative flex flex-col"
+    >
+      
+  <script src="https://d2ls1pfffhvy22.cloudfront.net/assets-v2/gp-button.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  <gp-button gp-data='{"setting":{"btnLink":{"link":"","target":"_self"},"disabled":false,"htmlType":"button","iconAlign":"left","iconSvg":"","iconVisible":false,"label":"View All Products "}}' style="">
+  <div
+    
+    style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mb:var(undefined);--ta:left"
+    class=""
+  >
+    <style>
+    .grYSCuZlg1.gp-button-base::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      pointer-events: none;
+      border-style: none;
+  border-width: 0px 0px 0px 0px;
+  border-color: transparent;
+  
+      
+      border-bottom-left-radius: 99px;
+      border-bottom-right-radius: 99px;
+      border-top-left-radius: 99px;
+      border-top-right-radius: 99px;
+      
+    }
+
+    .grYSCuZlg1:hover::before {
+      
+      
+    }
+  </style>
+    <button
+      type="button" data-id="grYSCuZlg1" aria-label="View All Products "
+      data-state="idle"
+      class="grYSCuZlg1 gp-button-base rounded-none max-w-full relative group inline-flex items-center justify-center no-underline transition-colors duration-300 disabled:btn-disabled disabled:opacity-30 disabled:pointer-events-none hover:text-g-bg-3 text-g-bg-3"
+      style="--hvr-bg:#286125;--bg:#58AD53;--bblr:99px;--bbrr:99px;--btlr:99px;--btrr:99px;--hvr-c:var(--g-c-bg-3, bg-3);--c:var(--g-c-bg-3, bg-3);--pl:32px;--pr:32px;--pt:12px;--pb:12px;--pl-tablet:32px;--pr-tablet:32px;--pt-tablet:12px;--pb-tablet:12px;--pl-mobile:32px;--pr-mobile:32px;--pt-mobile:12px;--pb-mobile:12px;--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--tt:default;--fs:normal;--ff:var(--g-font-DM-Sans, 'DM Sans');--weight:700;--ls:normal;--lh:150%;--size:16px;--size-tablet:16px;--size-mobile:14px"
+    >
+        <svg
+          class="invisible absolute h-5 w-5 animate-spin group-data-[state=loading]:visible"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
+        </svg>
+
+    
+      <span
+        class="break-words group-data-[state=loading]:invisible [&_p]:whitespace-pre-line z-1 h-full flex items-center overflow-hidden "
+        style="--tt:default"
+      >
+        View All Products 
+      </span>
+    </button>
+  </div>
+  </gp-button>
+  
+    </div><div
+      pageContext label="Block" tag="Col" type="component"
+      style="--jc:center"
+      class="g6rQIMbj0s relative flex flex-col"
+    >
+      
+    <div
+      pageContext parentTag="Col"
+        class="gghtyeGNkp "
+        style="--tt:default;--ta:left;--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--ml:var(--g-s-s);--mb:var(undefined)"
+      >
+      <div class="flex" style="--jc:left">
+        <div
+          data-gp-text
+          class="[&_p]:inline [&_p]:after:whitespace-pre-wrap [&_p]:after:content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--c:#424242;--fs:normal;--ff:var(--g-font-DM-Sans, 'DM Sans');--weight:400;--ls:normal;--lh:150%;--size:16px;--size-tablet:16px;--size-mobile:14px;word-break:break-word;overflow:hidden"
+        >
+        <p>258K Bought</p>
+        </div>
+      </div>
+    </div>
+    </div><div
+      pageContext label="Block" tag="Col" type="component"
+      style="--jc:center"
+      class="gXgf6VOCa1 relative flex flex-col"
+    >
+      <div
+    
+    role="presentation"
+    class="group/image gm1NVGn6_s"
+    style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mb:var(undefined);--ta:left"
+    >
+      <div
+        class="pointer-events-auto h-full"
+        
+        class="h-full w-full"
+        style="border-radius:inherit;--ta:left"
+      >
+        <img
+    quality="70" title="Image Title"
+    draggable="false"
+    class="!inline h-full max-w-full flex gp_lazyload"
+    data-src="https://ucarecdn.com/e822d88c-5302-4398-b744-8ebc63ec7a47/check.svg" data-srcset="https://ucarecdn.com/e822d88c-5302-4398-b744-8ebc63ec7a47/check.svg 768w,https://ucarecdn.com/e822d88c-5302-4398-b744-8ebc63ec7a47/check.svg 1024w,https://ucarecdn.com/e822d88c-5302-4398-b744-8ebc63ec7a47/check.svg 1440w" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+Pr1638ACaED3/nOThIAAAAASUVORK5CYII=" width="16" height="16" alt="Alt Image" priority base-src
+    sizes="100vw"
+    style="--aspect:16/16;--aspect-tablet:16/16;--aspect-mobile:16/16;--objf:cover;--w:16px;--w-tablet:16px;--w-mobile:16px;--h:auto;--h-tablet:auto;--h-mobile:auto;--bs:none;--bw:0px;--bc:transparent;--radius:var(--g-radius-none);border-radius:inherit"
+  />
+      </div>
+  </div>
+    </div>
+    </div>
+  
+    
+    </div><div
+      pageContext label="Block" tag="Col" type="component"
+      style="--jc:center"
+      class="g7kbFsDzn5 relative flex flex-col"
+    >
+      <div
+    
+    role="presentation"
+    class="group/image gt2yTBLzlY"
+    style="--b:solid;--bc:#121212;--bw:0px;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--radius:var(--g-radius-none);--mb:var(undefined);--ta:left"
+    >
+      <div
+        class="pointer-events-auto h-full"
+        
+        class="h-full w-full"
+        style="border-radius:inherit;--ta:left"
+      >
+        <img
+    quality="70" title="Image Title"
+    draggable="false"
+    class="!inline h-full max-w-full flex gp_lazyload"
+    data-src="https://ucarecdn.com/4e552f94-981a-4495-ab16-5302a6df3e19/-/format/auto/" data-srcset="https://ucarecdn.com/4e552f94-981a-4495-ab16-5302a6df3e19/-/format/auto/ 768w,https://ucarecdn.com/4e552f94-981a-4495-ab16-5302a6df3e19/-/format/auto/ 1024w,https://ucarecdn.com/4e552f94-981a-4495-ab16-5302a6df3e19/-/format/auto/ 1440w" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAA1JREFUGFdj+Pr1638ACaED3/nOThIAAAAASUVORK5CYII=" width="653" height="735" alt="Alt Image" priority base-src
+    sizes="100vw"
+    style="--aspect:653/735;--aspect-tablet:653/735;--aspect-mobile:653/735;--objf:cover;--w:100%;--w-tablet:100%;--w-mobile:100%;--h:auto;--h-tablet:auto;--h-mobile:auto;--bs:none;--bw:0px;--bc:transparent;--radius:var(--g-radius-none);border-radius:inherit"
+  />
+      </div>
+  </div>
+    </div>
+    </div>
+  
+    
+    </div>
+    </div>
+  
+            </section>
+          
+    
+{% schema %}
+  {
+    
+    "presets": [
+      {
+        "name": "Section - Mar 15 12:46:14"
+      }
+    ],
+    
+    "name": "Section - Mar 15 12:46:14",
+    "tag": "section",
+    "class": "gps-504922746933740650 gps gpsi",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/flipkart89/apps/bold/app/shopify/edit?pageType=THEME_SECTION&editorId=504922746933740650)"
+      }
+    ],
+    "blocks": [{"type": "@app"}]
+  }
+{% endschema %}

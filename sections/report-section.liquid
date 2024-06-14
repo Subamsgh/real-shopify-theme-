@@ -1,0 +1,104 @@
+
+<div class="repo-cstm-ptrn">
+  <div class="repo-cstm-child">{% render 'custom-menu' %}</div>
+  <div class="repo-cstm-child-1">
+    {% if section.settings['txt-repo-3'] != blank %}
+      <h2>{{ section.settings['txt-repo-3'] }}</h2>
+      <h3>{{ section.settings['txt-repo-45'] }}</h3>
+      <select name="links" id="" size="1" onchange="window.location.href=this.value;">
+        {% for block in section.blocks %}
+          {% if block.settings['url-report-09'] != blank %}
+            <option value="{{ block.settings.url-report-09 }}">{{ block.settings.txt_003 }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      <ul class="result-list">
+        <li class="{% if page.handle contains 'q4' %}active-background{% endif %}">Q4</li>
+        <li class="{% if page.handle contains 'q3' %}active-background{% endif %}">Q3</li>
+        <li class="{% if page.handle contains 'q2' %}active-background{% endif %}">Q2</li>
+        <li class="{% if page.handle contains 'q1' %}active-background{% endif %}">Q1</li>
+      </ul>
+
+      {% for block in section.blocks %}
+        {% if block.type == 'url' %}
+          <div class="repo-view-part">
+            <div class="repo-view-main-heading">{{ block.settings.txtblock22 }}</div>
+            <div class="repo-view-download-p">
+              <div class="view">
+                <a href="{{block.settings.view_url00.url}}" target="_blank" class="repoviewlink">View</a>
+              </div>
+              <div class="download">
+                <a href="{{ block.settings.view_url00 }}" class="repoviewlink" download>Download</a>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "add repo accordion",
+  "settings": [
+    {
+      "type": "text",
+      "id": "txt-repo-3",
+      "label": "Enter The Heading",
+      "default":"Quarterly Compliance & Disclosures"
+    },
+    {
+      "type": "text",
+      "id": "txt-repo-45",
+      "label": "Enter The Sub Heading",
+      "default":"CHECK OUR QUARTERLY FINANCIAL REPORTS"
+    }
+  ],
+  "blocks": [
+    {
+      "name":"text",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "txt_003",
+          "label": "Enter The option value"
+        },
+        {
+          "type": "url",
+          "id": "url-report-09",
+          "label": "Choose button URL"
+        }
+      ]
+    },
+    {
+      "name":"url",
+      "type": "url",
+      "settings": [
+        {
+          "type": "text",
+          "id": "txtblock22",
+          "label": "Enter Heading"
+        },
+        {
+          "type": "url",
+          "id": "view_url00",
+          "label": "View Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Add Report Section"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .active-background{
+    background:#bf1616;
+  }
+</style>

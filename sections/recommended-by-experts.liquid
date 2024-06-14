@@ -1,0 +1,121 @@
+<!--Expert Recommendation Section -->
+<div class="p_recommend_by_expert">
+<div class="rcommended_by_expert">
+  <h2 class="rcommended_heading">{{ section.settings.txt_exp_0 }}</h2>
+  <div class="reccommend_rounded_border">
+    <div class="recommend_img_cell"><img src="{{ section.settings.expert_img_0 | image_url}}" width="302px" height="151px"></div>
+    <div class="recommend_expert_text">
+      <h3 class="expert_name_designation">{{ section.settings.txt_exp_des_0 }}</h3>
+      <p class="expert_advice">{{ section.settings.txt_exp_view_0 }}</p>
+    </div>
+  </div>
+</div>
+</div>
+<style>   
+.reccommend_rounded_border {
+    display: flex;
+    background: #fff;
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    gap: 1.5%;
+}
+.rcommended_by_expert {
+    width: 900px;
+    margin: auto;
+} 
+.p_recommend_by_expert {
+    background: rgb(176, 221, 167);
+    padding-bottom: 2%;
+}  
+p.expert_advice {
+    font-size: 14px;
+    color: #7e7e7e;
+    letter-spacing: 0.15px;
+    margin:2px auto;
+}  
+h2.rcommended_heading {
+    margin-bottom: 9px;
+    padding-top: 16px;
+    font-size: 22.5px;
+    font-weight: 600;
+    letter-spacing: 0.32px;
+    line-height: 33px;
+}  
+h3.expert_name_designation {
+    margin: 0;
+    font-weight:600;
+}  
+.recommend_img_cell>img {
+    border-radius: 8px;
+}  
+@media screen and (max-width:768px){
+  .rcommended_by_expert {
+    width: 92%;
+    box-sizing: border-box;
+    margin: auto;
+  }
+  .reccommend_rounded_border{
+    flex-direction:column;
+  } 
+  .recommend_img_cell>img {
+      width: 100%;
+      height: auto;
+  } 
+  .reccommend_rounded_border {
+    gap:0;
+    padding:12px;
+  }
+   .p_recommend_by_expert {
+    padding-bottom: 5%;
+  }
+  .recommend_img_cell {
+        align-self: stretch;
+  }
+}   
+@media screen and (max-width:900px) and (min-width:769px){  
+  .rcommended_by_expert{
+    width:90%;
+    margin:auto;
+  }
+  .p_recommend_by_expert {
+    padding-bottom: 3%;
+  }
+  .recommend_img_cell {
+    align-self: center;
+  }
+}  
+</style>
+{% schema %}
+{
+  "name": "Expert Talk",
+  "settings": [
+    {
+      "type": "text",
+      "id": "txt_exp_0",
+      "label": "Enter Heading",
+      "default":"Recommended By Experts"
+    },
+    {
+      "type": "image_picker",
+      "id": "expert_img_0",
+      "label": "Select Image"
+    },
+     {
+      "type": "text",
+      "id": "txt_exp_des_0",
+      "label": "Enter Name And Designation"
+    },
+     {
+      "type": "text",
+      "id": "txt_exp_view_0",
+      "label": "Enter Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Expert Recommendation"
+    }
+  ]
+}
+{% endschema %}

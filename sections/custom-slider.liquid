@@ -1,0 +1,179 @@
+<div class="custom_slider_main">
+  {% for block in section.blocks %}
+    <div class="container">
+      <div class="slide-container {% if forloop.index == 1 %}active {% endif %}">
+        <div class="slide">
+          <div>
+            <div class="content" style="position:absolute;text-align:{{ section.settings.text_alignment}}">
+              <div class="xyz">
+                <h3>{{ block.settings.txt_heading }}</h3>
+                <p>{{ block.settings.desc }}</p>
+                <a href="#" class="btn">Learn More</a>
+              </div>
+              <div id="next" onclick="next()">&gt</div>
+              <div id="prev" onclick="prev()">&lt</div>
+            </div>
+            {{ block.settings.image_1 | image_url: width: 500 | image_tag: alt: 'Product Image' }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name":"Custom-Slider",
+  "tag":"section",
+  "class":"slider",
+  "settings":[
+    {
+      "type":"text_alignment",
+      "id":"text_alignment",
+      "label":"Text Alignment",
+      "default":"center"
+
+    }
+  ],
+  "blocks":[
+    {
+      "name":"Slide",
+      "type":"Slide",
+      "settings":[
+        {
+          "type":"image_picker",
+          "id":"image_1",
+          "label":"Image Picker"
+        },
+        {
+          "type":"text",
+          "id":"txt_heading",
+          "label":"Heading"
+        },
+        {
+          "type":"text",
+          "id":"desc",
+          "label":"Paragraph"
+        }
+      ]
+    }
+  ],
+  "presets":[{
+    "name":"Custom Slider"
+  }]
+}
+{% endschema %}
+
+<style>
+  *{
+    margin:0;
+    padding:0;
+    box-sizing-border-box;
+    outline:none;
+    border:none;
+    text-decoration:none;
+    text-transform:uppercase;
+  }
+  .container{
+    position:relative;
+  }
+  .slide{
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    z-index:1;
+  }
+
+  img{
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+    height:100%;
+    width:100%;
+    object-fit:cover;
+
+  }
+  .content{
+    min-height:100vh;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-flow:column;
+    background-color:rgba(0,0,0,0.7);
+    /* text-align:center; */
+  }
+  h3{
+    /* font-size:60px; */
+    color:#fff;
+    text-shadow:0 5px 10px rgba(0,0,0,0.3);
+  }
+   p{
+    font-size:15px;
+    color:#eee;
+     font-weight:lighter;
+    text-shadow:0 5px 10px rgba(0,0,0,0.3);
+     /* max-width:700px; */
+  }
+  .btn{
+    display:inline-block;
+    padding:9px 30px;
+    background-color:#fff;
+    text-shadow:0 5px 10px rgba(0,0,0,0.3);
+    font-weight:bold;
+    font-size:17px;
+    margin-top:10px;
+    transition: .2s linear;
+  }
+  .btn:hover{
+    letter-spacing:2px;
+  }
+  .slide-container{
+    display:none;
+  }
+  .slide-container.active{
+    display:block;
+  }
+  .container #next,
+  .container #prev{
+    position:absolute;
+    bottom:50%;
+    transform:translateY(-50);
+    z-index:100;
+    /* background-color:#fff; */
+    color:#fff;
+    font-weight:bold;
+    height:60px;
+    width:50px;
+    line-height:55px;
+    font-size:55px;
+    cursor:pointer;
+    text-align:center;
+    padding:50px;
+  }
+  #next{
+    right:0;
+  }
+  #prev{
+    left:0;
+  }
+  .xyz{
+    width:80%;
+  }
+</style>
+
+<script>
+  let slides=document.querySelectorAll('.slide-container');
+  let index=0;
+  function next(){
+    slides[index].classList.remove('active');
+    index=(index+1)%slides.length;
+    slides[index].classList.add('active');
+  }
+  function prev(){
+    slides[index].classList.remove('active');
+    index=(index-1+slides.length)%slides.length;
+    slides[index].classList.add('active');
+  }
+</script>

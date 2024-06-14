@@ -1,0 +1,273 @@
+<div style="background:black;padding: 8% 0;">
+  {% assign lists = page.metafields.custom.car_performance_servce.value %}
+  {% for list in lists %}
+    <div class="home-intro-heading-portfolio-specialist-parent">
+      {% if list.enquire_now_link_text.value != blank %}
+        <div class="home-intro-heading-portfolio-specialist-p">
+          <h2 class="home-intro-heading-portfolio-specialist">{{ list.car_performance_heading.value }}</h2>
+          <div>
+            <a href="{{ list.enquire_now_link }}" class="portifolio-specialist-p">
+              {{- list.enquire_now_link_text.value }}
+              <img
+                width="28"
+                loading="lazy"
+                alt=""
+                src="{{ list.enquire_now_image | img_url : master}}"
+                class="specialist-hero-button-icon"
+            ></a>
+          </div>
+        </div>
+      {% endif %}
+      <div class="page-widths" style="background: #fff;">
+       
+        {% for i in (1..4) %}
+          <div class="page-width-containered">
+            <div class="column-list-panel">
+              <div class="performanceHeading">
+                <h2 class="column-list-heading">{{ list.performance_heading.value[forloop.index0] }}</h2>
+              </div>
+              <div class="performanceDescription">
+                <p class="column-list-paragraph">{{ list.performance_description.value[forloop.index0] }}</p>
+              </div>
+              <div class="performanceButton">
+                <a href="{{ list.performance_button_url.value[forloop.index0] }}" class="text-block-23">
+                  {{- list.performance_button_text.value[forloop.index0] -}}
+                </a>
+                <span class="glow-circle"></span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+    @keyframes dotted-glow {
+    	from {
+    		width: 0px;
+    		height: 0px;
+    	}
+
+    	to {
+    		width: 8px;
+    		height: 8px;
+    	}
+    }
+
+    .glow-circle {
+    	animation-name: dotted-glow;
+    	animation-duration: 1.5s;
+    	animation-iteration-count: infinite;
+    	animation-direction: alternate;
+    	width: 8px;
+    	height: 8px;
+    	background: #fff;
+    	display: block;
+    	border-radius: 50%;
+    	position: relative;
+    	align-self: center;
+    	margin-left: 12px;
+    }
+
+    .glow-circle {
+    	width: 8px;
+    	height: 8px;
+    	background: #fff;
+    }
+
+    .performanceButton {
+    	display: inline-flex;
+    }
+
+    .column-list-panel:hover::before {
+    	height: 100%;
+    }
+
+    .column-list-panel:before {
+    	content: "";
+    	position: absolute;
+    	left: 0;
+    	bottom: 0;
+    	width: 100%;
+    	height: 0%;
+    	background: rgb(10 10 10);
+    	/* z-index: -1; */
+    	transition: 0.8s;
+    }
+
+    .home-intro-heading-portfolio-specialist-parent {
+    	background: black;
+    	border: 1px solid #333;
+    	margin: 5%;
+        padding-bottom:2%;
+    }
+
+    .home-intro-heading-portfolio-specialist-p>div {
+    	margin-right: 5%;
+    }
+
+    a.portifolio-specialist-p {
+    	width: 200px;
+    	display: block;
+    	text-decoration: none;
+    	color: #fff;
+    	border: 1px solid #fff;
+    	border-radius: 40px;
+    	letter-spacing: 3px;
+    	text-transform: uppercase;
+    	text-align: center;
+    	font-size: 16px;
+    	font-weight: 400;
+    	padding: 2%;
+    }
+
+    .home-intro-heading-portfolio-specialist-p {
+    	display: flex;
+    	align-items: center;
+    	justify-content: space-between;
+    }
+
+    .home-intro-heading-portfolio-specialist {
+    	color: white;
+    	font-size: 22px;
+    	font-weight: 400;
+    	letter-spacing: 6px;
+    	text-transform: uppercase;
+    	padding-left: 5%;
+    	padding-top: 5%;
+    	padding-bottom: 2%;
+    }
+
+    .column-list-panel {
+    	padding: 10% 9% 9%;
+    	border: 1px solid #333;
+    	width: 100%;
+    	position: relative;
+    	cursor: pointer;
+    	margin-bottom: 3%;
+    }
+
+    .text-block-23 {
+    	color: #fff;
+    	letter-spacing: 2px;
+    	text-transform: uppercase;
+    	font-size: 12px;
+    	text-decoration: none;
+    	position: relative;
+    	z-index: 100;
+    }
+
+    .column-list-paragraph {
+    	color: #868686;
+    	letter-spacing: .3px;
+    	font-size: 14px;
+    	line-height: 1.8;
+    	font-size: 14px;
+    	z-index: 100;
+    	position: relative;
+    }
+
+    .column-list-heading {
+    	color: #fff;
+    	letter-spacing: 3px;
+    	text-transform: uppercase;
+    	margin-bottom: 0;
+    	font-size: 14px;
+    	position: relative;
+    	z-index: 100;
+    }
+
+    .page-width-containered {
+    	/* display: flex; */
+    	background: black;
+    }
+
+    .page-widths {
+    	width: 93%;
+    	margin: auto;
+      display:flex;
+    }
+
+    @media screen and (max-width : 1024px) {
+    	img.specialist-hero-button-icon {
+    		width: 22px;
+    		position: relative;
+    		left: 12px;
+    	}
+
+    	.column-list-panel {
+        	margin-bottom: 0;
+
+            width:100%;
+    	}
+
+    	a.portifolio-specialist-p {
+    		margin: 5px 0 60px 0;
+    		padding: 10px 25px;
+    	}
+
+    	h2.home-intro-heading-portfolio-specialist {
+    		text-align: center;
+    	}
+
+    	.page-width-containered {
+    		display: flex;
+    		background: black;
+    		width: 50%;
+    		flex-wrap: wrap;
+    		/* margin-bottom: 5%; */
+    	}
+    	.home-intro-heading-portfolio-specialist-p {
+    		flex-direction: column;
+    	}
+
+    	a.portifolio-specialist-p {
+    		font-size: 12px;
+    		font-weight: 400;
+    		width: 200px;
+    	}
+      .page-widths {
+      width: 93%;
+      flex-wrap: wrap;
+        margin-bottom:5%;
+  }
+    }
+
+    @media screen and (max-width : 480px) {
+    	.home-intro-heading-portfolio-specialist-parent {
+    		margin: 3%;
+          border:none;
+    	}
+
+    	.page-widths {
+    		width: 100%;
+    		margin: auto;
+    	}
+
+    	.page-width-containered {
+    		display: flex;
+    		background: black;
+    		width: 100%;
+    		flex-wrap: wrap;
+    		margin-bottom: 0;
+    	}
+
+    	.column-list-panel {
+    		width: 100%;
+    		padding: 5% 9% 9%;
+    	}
+
+    	.home-intro-heading-portfolio-specialist-p {
+    		flex-direction: column;
+    	}
+
+    	a.portifolio-specialist-p {
+    		font-size: 12px;
+    		font-weight: 400;
+    		width: 200px;
+    	}
+    }
+</style>

@@ -1,0 +1,180 @@
+<!--wurzel-->
+<div class="home-tesla-service-wrapper">
+  <!--OverLay HTML Code Start-->
+    <div class="tab_009"></div>
+  <!--OverLay HTML Code End-->
+  <div class="tesla-service-main-list">
+    {% for block in section.blocks %}
+      <div class="tesla-service-panel-list-item">
+        <a href="{{ block.settings.image_logo_url }}"
+          ><img alt="" loading="lazy" src="{{ block.settings.image_tesla_oz | image_url}}" class="home-speciality-logo"
+        ></a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.tab_009').click(function(){
+    $('.home-tesla-service-wrapper').toggleClass('tesla-car-pre');
+    $('.tab_009').removeClass('nav-make-close');
+    });
+    <!--desktop car makes click trigger -->
+     $('ul.list-menu.list-menu--inline>li:nth-child(1),ul.menu-drawer__menu.has-submenu.list-menu>li:nth-child(1)>a').click(function(){
+       $('.home-tesla-service-wrapper').toggleClass('tesla-car-pre');
+        $('.tab_009').toggleClass('nav-make-close');
+       
+       if (screen.width < 492) {
+        // alert(screen.width);
+         $('ul.list-menu.list-menu--inline').toggleClass('sho-hid');
+          $('body').css('overflow','hidden');
+          }
+       
+     });
+    <!--close icon-->
+      $('svg.icon.icon-close').click(function(){
+         $('body').css('overflow','auto');
+          $('.home-tesla-service-wrapper').removeClass('tesla-car-pre');
+         $('ul.list-menu.list-menu--inline').removeClass('sho-hid');
+        // $('.home-tesla-service-wrapper').css('overflo')
+      });
+  });
+</script>
+<style>
+  .sho-hid{
+    opacity:0;
+    visibility:hidden;
+  }
+    .home-tesla-service-wrapper{
+        backdrop-filter: blur(3000px);
+        background-color: rgba(10, 10, 10, .66);
+        position: fixed;
+        left: 0;
+        width: 100%;
+        z-index: 10000;
+        overflow:visible;
+        transition:transform 0.5s ease-in;
+      transform: translateY(-150%);
+    }
+
+    .home-speciality-logo {
+        width: 40%;
+        max-width: 140px;
+        height: 32%;
+        max-height: 86.5938px;
+        margin-bottom: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .tesla-service-panel {
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: none;
+        border-radius: 0;
+        margin-top: -1px;
+        margin-left: -1px;
+    }
+    .tesla-service-main-list{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        list-style-type:none;
+        margin: 0;
+        padding: 0;
+    }
+    .tesla-service-panel-list-item{
+        width:20%;
+        border: 1px solid;
+        border-color: rgba(255, 255, 255, .06);
+    }
+    .tesla-service-panel-list-item>a {
+        display: block;
+        height: 16vw;
+        position:relative;
+    }
+  .tesla-service-panel-list-item>a:hover{
+    background-color:black;
+  }
+    .nav-make-close {
+        height: 100vh;
+        position: fixed;
+        top: 0%;
+        bottom: 0%;
+        left: 0%;
+        right: 0%;
+        display: block !important;
+    }
+    .tesla-car-pre{
+       transform: translateY(50px);
+       transition:transform 0.5s ease-in;
+       }
+    
+    @media screen and (max-width:990px){
+       .tesla-car-pre{
+        transform: translateY(50px);
+     }
+      .home-tesla-service-wrapper{
+        backdrop-filter: blur(30px);
+         z-index:9999981;
+        position:absolute;
+         height:100%;
+      overflow:auto !important;
+      }
+      .tesla-service-panel-list-item {
+      width: 50%;
+      }
+
+      /*
+      .tab_009{
+        z-index:5
+      } */
+      .tesla-service-panel-list-item>a{
+        height:47vw;
+      }
+      nav-make-close {
+        display:none;
+      }
+      /* .opaque{
+        opacity:0;
+      } */
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Sub Menu",
+  "class": "nav-list-item-car",
+  "tag":"section",
+  "settings": [],
+  "blocks": [
+   {
+     "name":"logo",
+     "type": "logo",
+     "settings": [
+       {
+         "type": "image_picker",
+         "id": "image_tesla_oz",
+         "label": "Add Logo"
+       },
+       {
+         "type": "url",
+         "id": "image_logo_url",
+         "label": "URL Of Images"
+       }
+     ]
+   }
+  ],
+  "presets": [
+    {
+      "name": "Add Sub Menu"
+    }
+  ],
+  "enabled_on": {
+  "templates": ["*"],
+  "groups": ["header"]
+  }
+}
+{% endschema %}

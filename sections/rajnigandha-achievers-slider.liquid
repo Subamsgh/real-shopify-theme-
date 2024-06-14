@@ -1,0 +1,209 @@
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+  integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+  integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+  integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+>
+
+<!-- section/rajnigandha -->
+<div class="container page-width">
+  <p class="achievers-description">
+    {{ section.settings.ach_det_desc }}
+  </p>
+  <h2 class="achievers-yr">{{ section.settings.ach_yr }}</h2>
+  <div class="rajnigandha__multiple-items">
+    {% for block in section.blocks %}
+      <div class="achievers_blurb">
+        <a href="#">
+          <div class="achiever_con"><img src="{{ block.settings.img__01 | image_url }}"></div>
+          <div class="ach_des">
+            <h3>{{ block.settings.description__90 }}</h3>
+            <div class="date">{{ block.settings.date__90 }}</div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Achievers Slider",
+  "tag": "section",
+  "class": "achiever-section",
+  "settings": [
+    {
+      "type": "html",
+      "id":"ach_det_desc",
+      "label": "Achievers Detailed Descripton"
+    },
+    {
+      "type": "text",
+      "id":"ach_yr",
+      "label": "Achievers Year"
+    }
+  ],
+  "blocks": [
+    {
+      "name":"slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img__01",
+          "label":"Select Image"
+        },
+        {
+          "type": "text",
+          "id": "description__90",
+          "label": "Enter The Description"
+        },
+        {
+          "type": "text",
+          "id": "date__90",
+          "label": "Enter The Date"
+        },
+        {
+          "type": "url",
+          "id": "Url__90",
+          "label": "Select The Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name":"slider for rajnigandha"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  /* To Make The Background Black  */
+   main#MainContent {
+       background: black;
+   }
+   .rajnigandha__multiple-items > .slick-list > .slick-track > .slick-slide {padding: 22px;}
+   .rajnigandha__multiple-items > .slick-prev {
+     left: -41px;
+   }
+   .slick-next:before, .slick-prev:before {
+     font-size:40px
+   }
+   .slick-slide img {
+     display: block;
+     width: 100%;
+     height:auto;
+   }
+   .container.page-width {
+     margin-bottom: 200px;
+   }
+   .ach_des > h3 {
+     font-size: 22px;
+     color: #fff;
+     line-height: 28px;
+     font-weight: 700;
+     padding: 10px 0 12px;
+     margin:0;
+   }
+   .ach_des > .date {
+     font-size: 14px;
+     color: #fff;
+     font-weight: 500;
+     padding: 10px 0;
+   }
+   .ach_des {
+     background: #c8a357;
+     margin: 0;
+     padding: 20px 25px 65px 25px;
+     }
+   .achievers_blurb {
+     border-radius: 20px;
+     overflow: hidden;
+     width:32%;
+     }
+   .achievers-yr{
+     font-size: 50px;
+     color: #c8a357;
+     text-align: center;
+     line-height: 100%;
+     font-weight: 700;
+     margin-bottom: 20px;
+   }
+   .achievers_blurb > a{
+     text-decoration:none;
+   }
+   .achievers-description{
+     width: 90%;
+     margin: auto;
+     text-align: center;
+     color: white;
+     font-size: 16px;
+     line-height: 24px;
+   }
+  @media screen and (max-width:1000px){
+    .rajnigandha__multiple-items > .slick-list > .slick-track > .slick-slide {
+      padding: 0 10px;
+    }
+  }
+  @media screen and (max-width:600px){
+     .rajnigandha__multiple-items > .slick-prev {
+       left: -1vw;
+       z-index:10;
+     }
+     .rajnigandha__multiple-items > .slick-next {
+       right: 1vw;
+       z-index:10;
+     }
+   }
+</style>
+
+<script>
+  $(document).ready(function(){
+    $('.rajnigandha__multiple-items').slick({
+    infinite: false,
+    slidesToShow: 3,
+    dots:false,
+    slidesToScroll:1,
+       responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow:2,
+        slidesToScroll: 1,
+        infinite: false,
+        dots: false
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+        dots: false
+      }
+    }
+  ]
+  });
+  });
+</script>

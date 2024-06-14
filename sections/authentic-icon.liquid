@@ -1,0 +1,100 @@
+<!--logo/icon section-->
+<div class="authenticatons_logo">
+  {% for block in section.blocks %}
+    <div class="authenticatons_logo_child">
+      <div class="authenticatons_logo_image">
+        {{ block.settings.logo_authentication_image }}
+      </div>
+      <div class="authentication_heading">{{ block.settings.logo_icon_text }}</div>
+    </div>
+  {% endfor %}
+</div>
+{% schema %}
+{
+  "name": "Icons",
+  "settings": [
+   {
+  "type": "range",
+  "id": "font_size",
+  "min": 60,
+  "max": 100,
+  "step": 1,
+  "unit": "px",
+  "label": "image size for desktop",
+  "default":90
+    },
+    {
+  "type": "range",
+  "id": "font_size_mobile",
+  "min": 40,
+  "max": 60,
+  "step": 1,
+  "unit": "px",
+  "label": "image size for mobile",
+  "default":56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "images",
+      "name":"image",
+      "settings": [
+        {
+        "type": "html",
+        "id": "logo_authentication_image",
+        "label": "selcet logo"
+        },
+        {
+          "type": "html",
+          "id": "logo_icon_text",
+          "label": "Icon Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Add Icon"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+    .authenticatons_logo_child>div>svg {
+        width: {{section.settings.font_size}}px;
+        height: {{section.settings.font_size}}px;
+        }
+      .authenticatons_logo{
+        display:flex;
+        justify-content: center;
+        column-gap: 70px;
+        margin-top:15px;
+        margin-bottom:15px;
+        text-align:center;
+      }
+      .authentication_heading{
+        width: 91px;
+        word-break: break-word;
+        text-wrap: wrap;
+        font-size: 14px;
+        letter-spacing: .15px;
+        line-height: 16.9px;
+        color: #7e7e7e;
+        text-align: center;
+      }
+      @media screen and (max-width:649px){
+        .authenticatons_logo{
+          column-gap:0px;
+          justify-content:space-between;
+        }
+        .authentication_heading{
+          font-size:12px;
+          overflow:hidden;
+        }
+        .authenticatons_logo_child>div>svg {
+          width:{{section.settings.font_size_mobile}}px;
+          height:{{section.settings.font_size_mobile}}px;
+        }
+  }
+</style>
